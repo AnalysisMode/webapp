@@ -87,7 +87,15 @@ export const theme: DefaultTheme = {
 }
 
 export const GlobalStyle = createGlobalStyle`
-  body {
-     font-size: ${({ theme }) => theme.font.size.smaller}
+    body {
+     font-size: ${({ theme }) => theme.font.size.smaller};
+     font-family: ${({ theme }) => theme.font.family.body};
+    },
+    a, a:link, a:visited, a:active {
+      text-decoration: none;
+
+      * {
+          text-decoration: none;
+      }
   }
 `
