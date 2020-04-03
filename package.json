@@ -28,7 +28,8 @@
     },
     "prettier": {
         "tabWidth": 4,
-        "semi": false
+        "semi": false,
+        "singleQuote": true
     },
     "husky": {
         "hooks": {
