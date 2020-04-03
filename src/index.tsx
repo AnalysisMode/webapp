@@ -1,13 +1,22 @@
+// libs
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
+import { ThemeProvider } from 'styled-components'
+
+// components
+import App from './views/App'
+import { theme } from './styled-components/theme'
 import * as serviceWorker from './serviceWorker'
 
+// style
+import 'sanitize.css'
+import 'sanitize.css/forms.css'
+import 'sanitize.css/typography.css'
+
 ReactDOM.render(
-    <React.StrictMode>
+    <ThemeProvider theme={theme}>
         <App />
-    </React.StrictMode>,
+    </ThemeProvider>,
     document.getElementById('root')
 )
 
