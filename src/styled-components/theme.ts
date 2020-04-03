@@ -1,6 +1,6 @@
 // import original module declarations
 import 'styled-components'
-import { DefaultTheme } from 'styled-components'
+import { DefaultTheme, createGlobalStyle } from 'styled-components'
 
 // and extend them!
 declare module 'styled-components' {
@@ -85,3 +85,9 @@ export const theme: DefaultTheme = {
         tiny: 10,
     },
 }
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+     font-size: ${({ theme }) => theme.font.size.smaller}
+  }
+`

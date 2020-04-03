@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 
 // components
 import App from './views/App'
-import { theme } from './styled-components/theme'
+import { theme, GlobalStyle } from './styled-components/theme'
 import * as serviceWorker from './serviceWorker'
 
 // style
@@ -15,6 +15,7 @@ import 'sanitize.css/typography.css'
 
 ReactDOM.render(
     <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <App />
     </ThemeProvider>,
     document.getElementById('root')
