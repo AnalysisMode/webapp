@@ -5,7 +5,8 @@ import { ThemeProvider } from 'styled-components'
 
 // components
 import App from './views/App'
-import { theme, GlobalStyle } from './styled-components/theme'
+import { theme } from './styled-components/theme'
+import { GlobalStyle } from './styled-components/global-style'
 import * as serviceWorker from './serviceWorker'
 
 // style

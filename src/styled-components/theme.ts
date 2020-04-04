@@ -1,48 +1,4 @@
-// import original module declarations
-import 'styled-components'
-import { DefaultTheme, createGlobalStyle } from 'styled-components'
-
-// and extend them!
-declare module 'styled-components' {
-    export interface DefaultTheme {
-        colors: {
-            primaryGreen: string
-            lightGreen: string
-            darkGreen: string
-            brown: string
-            red: {
-                [key: string]: string
-            }
-            blue: {
-                [key: string]: string
-            }
-            dark: {
-                [key: string]: string
-            }
-            light: {
-                [key: string]: string
-            }
-        }
-        font: {
-            family: {
-                title: string
-                body: string
-            }
-            size: {
-                [key: string]: string
-            }
-        }
-        spacing: {
-            tiny: number
-            small: number
-            medium: number
-            large: number
-        }
-    }
-}
-
-// Export theme implementing interface
-export const theme: DefaultTheme = {
+export const theme = {
     colors: {
         primaryGreen: '#2BBD7E',
         lightGreen: '#69F0AE',
@@ -85,9 +41,3 @@ export const theme: DefaultTheme = {
         tiny: 10,
     },
 }
-
-export const GlobalStyle = createGlobalStyle`
-  body {
-     font-size: ${({ theme }) => theme.font.size.smaller}
-  }
-`
