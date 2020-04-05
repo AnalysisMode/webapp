@@ -24,9 +24,6 @@ export default () => {
 const Navbar = {
     Wrapper: Styled.header`
     display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
     height: 150px;
     width: 100%;
     padding: 0 10%;
@@ -34,7 +31,7 @@ const Navbar = {
     align-items: center;
     `,
     Layout: Styled.div`
-  display: flex;
+    display: flex;
     flex-direction: row;
     height: 45px;
     justify-content: space-between;

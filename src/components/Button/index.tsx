@@ -11,7 +11,8 @@ const StyledButton = styled.button<Props>`
     font-size: ${({ theme }) => theme.font.size.smaller};
     font-weight: bold;
     font-family: ${({ theme }) => theme.font.family.title};
-    padding: 13px 23px;
+    height: 45px;
+    padding: 0 30px;
     text-transform: lowercase;
     cursor: pointer;
     transition: all 0.2s ease-out;
@@ -19,9 +20,12 @@ const StyledButton = styled.button<Props>`
     background-color: transparent;
 
     :hover {
-                transition: all 0.2s ease-out;
-                transform: scale(1.05);
-            }
+        transition: all 0.2s ease-out;
+    }
+
+    :not(last-child) {
+        margin-right: 20px;
+    }
 
     ${({ disabled }) =>
         disabled &&
@@ -35,6 +39,10 @@ const StyledButton = styled.button<Props>`
         css`
             background-color: ${theme.colors.primaryGreen};
             color: ${theme.colors.light['shade-1']};
+
+            &:hover {
+                background-color: ${theme.colors.lightGreen};
+            }
         `}
     
     /* secondary button style */

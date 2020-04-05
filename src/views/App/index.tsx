@@ -20,13 +20,13 @@ export default () => {
 
 const App = {
     Layout: Styled.div`
-    height: 100vh;
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    padding: 0 170px;
     background: ${(props) => props.theme.colors.dark['shade-1']};
   `,
     Body: Styled.div`
-    margin-top: 100px;
     flex: 1;
   `,
 }

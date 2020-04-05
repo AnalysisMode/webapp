@@ -46,9 +46,11 @@ const Brand = {
     BrandName: Styled.span`
     display: flex;
     text-transform: uppercase;
+    font-family: ${(props) => props.theme.font.family.title};
     `,
     BrandTitle: Styled.span`
     display: flex;
+    font-family: ${(props) => props.theme.font.family.title};
     `,
     Bold: Styled.b`
     `,
