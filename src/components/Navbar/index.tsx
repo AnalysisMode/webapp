@@ -26,7 +26,6 @@ const Navbar = {
     display: flex;
     height: 150px;
     width: 100%;
-    padding: 0 10%;
     background: transparent;
     align-items: center;
     `,

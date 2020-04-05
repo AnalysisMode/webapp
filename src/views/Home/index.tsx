@@ -76,7 +76,7 @@ const Home = {
     `,
     Right: Styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex: 1;
     `,
     Logo: Styled.img`

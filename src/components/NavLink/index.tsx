@@ -36,6 +36,10 @@ const NavLink = {
     font-size: ${(props) => props.theme.font.size.smaller};
     font-family: ${(props) => props.theme.font.family.title};
 
+    &:hover {
+        color: ${(props) => props.theme.colors.lightGreen};
+    }
+
     &.active {
       color: ${(props) => props.theme.colors.brown};
     }

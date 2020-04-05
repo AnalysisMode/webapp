@@ -23,7 +23,7 @@ const App = {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    padding: 0 170px;
+    padding: 0 200px;
     background: ${(props) => props.theme.colors.dark['shade-1']};
   `,
     Body: Styled.div`
