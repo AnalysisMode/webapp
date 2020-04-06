@@ -25,7 +25,7 @@ const Navbar = {
     Wrapper: Styled.header`
     display: flex;
     height: 150px;
-    width: 100%;
+    margin: 0 200px;
     background: transparent;
     align-items: center;
     `,

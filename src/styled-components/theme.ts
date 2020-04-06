@@ -1,8 +1,12 @@
 export const theme = {
     colors: {
         primaryGreen: '#2BBD7E',
+        secondaryGreen: '#BFEBD8',
         lightGreen: '#69F0AE',
         darkGreen: '#219653',
+        darkerGreen: '#0d3926',
+        tableDarkRow: '#01170E',
+        tableLightRow: '#06281A',
         brown: '#F2994A',
         red: {
             'shade-1': '#EB5757',

@@ -3,8 +3,6 @@ import React from 'react'
 import { A, usePath } from 'hookrouter'
 import Styled from 'styled-components'
 
-// components
-
 type NavLinkProps = {
     href: string
     title: string

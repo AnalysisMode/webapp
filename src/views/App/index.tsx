@@ -6,6 +6,7 @@ import Styled from 'styled-components'
 
 // components
 import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
 
 export default () => {
     const router = useRoutes(Router)
@@ -14,6 +15,7 @@ export default () => {
         <App.Layout>
             <Navbar />
             <App.Body>{router}</App.Body>
+            <Footer />
         </App.Layout>
     )
 }
@@ -21,10 +23,9 @@ export default () => {
 const App = {
     Layout: Styled.div`
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
-    height: 100vh;
-    padding: 0 200px;
-    background: ${(props) => props.theme.colors.dark['shade-1']};
+    background-color: ${(props) => props.theme.colors.dark['shade-1']};
   `,
     Body: Styled.div`
     flex: 1;

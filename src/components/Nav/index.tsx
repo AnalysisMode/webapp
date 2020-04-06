@@ -10,6 +10,7 @@ import { Button } from '../Button'
 export default () => {
     return (
         <Nav.Wrapper>
+            <NavLink href="/team" title="the team" />
             <NavLink href="/leaderboard" title="leaderboard" />
             <NavLink href="/howitworks" title="how it works" />
             <NavLink href="/howtohelp" title="how to help" />
