@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import styled, { css } from 'styled-components/macro'
 
 interface Props {
-    variant?: 'primary' | 'secondary' | 'link'
+    variant?: 'primary' | 'secondary' | 'link' | 'orange'
     disabled?: boolean
     onClick?: () => void
 }
@@ -62,6 +62,13 @@ const StyledButton = styled.button<Props>`
             :hover {
                 text-decoration: underline;
             }
+        `}
+
+    ${({ variant, theme }) =>
+        variant === 'orange' &&
+        css`
+            color: ${theme.colors.light['shade-1']};
+            background-color: ${theme.colors.brown};
         `}
 
 `

@@ -7,23 +7,42 @@ import { navigate } from 'hookrouter'
 import NavLink from '../NavLink'
 import { Button } from '../Button'
 
-export default () => {
-    return (
-        <Nav.Wrapper>
-            <NavLink href="/team" title="the team" />
-            <NavLink href="/leaderboard" title="leaderboard" />
-            <NavLink href="/howitworks" title="how it works" />
-            <NavLink href="/howtohelp" title="how to help" />
-            <Button
-                disabled={false}
-                key={'nav-game-button'}
-                onClick={() => navigate('/game')}
-                variant={'primary'}
-            >
-                play now
-            </Button>
-        </Nav.Wrapper>
-    )
+type NavProps = {
+    isGameView: boolean
+}
+
+export default ({ isGameView }: NavProps) => {
+    if (!isGameView) {
+        return (
+            <Nav.Wrapper>
+                <NavLink href="/team" title="the team" />
+                <NavLink href="/leaderboard" title="leaderboard" />
+                <NavLink href="/howitworks" title="how it works" />
+                <NavLink href="/howtohelp" title="how to help" />
+                <Button
+                    disabled={false}
+                    key={'nav-game-button'}
+                    onClick={() => navigate('/game')}
+                    variant={'primary'}
+                >
+                    play now
+                </Button>
+            </Nav.Wrapper>
+        )
+    } else {
+        return (
+            <Nav.Wrapper>
+                <Button
+                    disabled={false}
+                    key={'nav-home-button'}
+                    onClick={() => navigate('/')}
+                    variant={'orange'}
+                >
+                    home
+                </Button>
+            </Nav.Wrapper>
+        )
+    }
 }
 
 const Nav = {

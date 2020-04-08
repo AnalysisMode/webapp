@@ -1,7 +1,6 @@
 // libs
 import React from 'react'
 import Styled from 'styled-components'
-import { A } from 'hookrouter'
 
 import { ReactComponent as LinkedinLogo } from '../../assets/linkedin.svg'
 
@@ -87,10 +86,16 @@ const Team = {
     color: ${(props) => props.theme.colors.light['shade-1']};
     font-weight: normal;
     `,
-    Linkedin: Styled(A)`
+    Linkedin: Styled.a`
   margin-left: 10px;
     display: flex;
     align-items: center;
     text-decoration: none;
+    color: ${(props) => props.theme.colors.light['shade-1']};
+
+    &:link, &:visited, &:active {
+      color: ${(props) => props.theme.colors.light['shade-1']};
+      text-decoration: none;
+    }
     `,
 }

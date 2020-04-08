@@ -23,6 +23,8 @@ const SubTitle = {
     display: flex;
     flex-direction: column;
     flex: 1;
+    align-items: center;
+    text-align: center;
 
     &:not(:nth-last-child(1)) {
       margin-right: 30px;
@@ -41,5 +43,6 @@ const SubTitle = {
     `,
     Image: Styled.img`
     margin-top: 30px;
+    max-width: 302px;
   `,
 }

@@ -5,8 +5,11 @@ import Styled from 'styled-components'
 // components
 import Brand from '../Brand'
 import Nav from '../Nav'
+import { usePath } from 'hookrouter'
 
 export default () => {
+    const isGameView = usePath().indexOf('/game') > -1
+
     return (
         <Navbar.Wrapper>
             <Navbar.Layout>
@@ -14,7 +17,7 @@ export default () => {
                     <Brand />
                 </Navbar.Brand>
                 <Navbar.Nav>
-                    <Nav />
+                    <Nav isGameView={isGameView} />
                 </Navbar.Nav>
             </Navbar.Layout>
         </Navbar.Wrapper>
