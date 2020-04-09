@@ -46,6 +46,47 @@ const team: TeamMember[] = [
             'https://media-exp1.licdn.com/dms/image/C4D03AQF8CK9CgPueVA/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=5W3poXWXkwawfDyroWLFeqKsGy6NQjSU0f2ecYMyXDI',
         linkedinUrl: 'https://www.linkedin.com/in/jannis-born-319054121/',
     },
+
+    {
+        name: 'Milda Dapkeviciute',
+        expertise: ['Strategic Partnerships', 'COO @ ParisRio.fi'],
+        imagePath:
+            'https://media-exp1.licdn.com/dms/image/C5603AQH_vOQK7xsjUA/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=gh0JgKPbsl70el8v3lCz2PDKHSaPe4V92w6XR4WS9M8',
+        linkedinUrl:
+            'https://www.linkedin.com/in/milda-dapkevi%C4%8Di%C5%ABt%C4%97-27ba50aa/',
+    },
+    {
+        name: 'Arnold Mauragas',
+        expertise: [
+            'Business Development',
+            'UX Design',
+            'Co-Founder @ DesignDen',
+        ],
+        imagePath:
+            'https://media-exp1.licdn.com/dms/image/C4D03AQEu2JMB5zgKhA/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=BuR3-8PR5cRxpTPeMH8wSzE3V2vdOMXt9JKLTEWfILI',
+        linkedinUrl: 'https://www.linkedin.com/in/arnoldasmauragas/',
+    },
+    {
+        name: 'Stian Weiseth',
+        expertise: ['AI Developer', 'Masters in Biotechnology'],
+        imagePath:
+            'https://media-exp1.licdn.com/dms/image/C4D03AQFtPkkeurvylw/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=U8Eo2wrXloD_5r1p0NXDIsH_ZvBdyoL_wrdGGRjbC-0',
+        linkedinUrl: 'https://www.linkedin.com/in/stianaweiseth/',
+    },
+    {
+        name: 'Mathis Duehrsen',
+        expertise: ['Psychology & Game Behaviour', 'University of Maastricht'],
+        imagePath:
+            'https://media-exp1.licdn.com/dms/image/C5603AQH-0hqIaxmlxg/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=8IoZvTrG0Schm4_sEEaAOEyyPkvpoEu5FMyfItp7R7I',
+        linkedinUrl: 'https://www.linkedin.com/in/mathis-duehrsen-265b24101/',
+    },
+    {
+        name: 'Teppo Hudsson',
+        expertise: ['Service Architect', ' UX', 'Lead Architect @ Elisa Plc'],
+        imagePath:
+            'https://media-exp1.licdn.com/dms/image/C5603AQEqlS-P_edOBw/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=osb7i8Oq60saPVgyfvuUm5YZrfk6FkL1t7g5E-wCxUc',
+        linkedinUrl: 'https://www.linkedin.com/in/hudsson/',
+    },
 ]
 
 export default team
