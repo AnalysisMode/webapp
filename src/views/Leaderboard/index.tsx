@@ -3,9 +3,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import Styled from 'styled-components'
 import axios from 'axios'
 import { theme } from '../../styled-components/theme'
-import { navigate } from 'hookrouter'
 
 // components
+import ViewLayout from '../../components/ViewLayout'
 import ViewTitle from '../../components/ViewTitle'
 
 type LeaderboardEntry = {
@@ -19,15 +19,13 @@ export default () => {
 
     useEffect(() => {
         ;(async () => {
-            axios
-                .get('https://www.analysismode.com/sapiens/ranking/')
-                .then((result) => {
-                    if (!mountedRef.current) {
-                        return null
-                    }
+            axios.get('https://www.analysismode.com/sapiens/ranking/').then((result) => {
+                if (!mountedRef.current) {
+                    return null
+                }
 
-                    setLeaderboard(result.data)
-                })
+                setLeaderboard(result.data)
+            })
         })()
 
         return () => {
@@ -36,7 +34,7 @@ export default () => {
     }, [])
 
     return (
-        <Leaderboard.Layout>
+        <ViewLayout>
             <ViewTitle
                 title={'leaderboard'}
                 subtitle={'Which countries are helping the most'}
@@ -45,9 +43,7 @@ export default () => {
             <Leaderboard.Table>
                 <Leaderboard.TableHeader>
                     <Leaderboard.HeaderColumn>country</Leaderboard.HeaderColumn>
-                    <Leaderboard.HeaderColumn>
-                        # of solutions
-                    </Leaderboard.HeaderColumn>
+                    <Leaderboard.HeaderColumn># of solutions</Leaderboard.HeaderColumn>
                 </Leaderboard.TableHeader>
                 {leaderboard.map((entry: LeaderboardEntry, i: number) => {
                     return (
@@ -60,27 +56,17 @@ export default () => {
                             }}
                             key={`${entry.country}-data`}
                         >
-                            <Leaderboard.TableColumn>
-                                {entry.country}
-                            </Leaderboard.TableColumn>
-                            <Leaderboard.TableColumn>
-                                {entry.count}
-                            </Leaderboard.TableColumn>
+                            <Leaderboard.TableColumn>{entry.country}</Leaderboard.TableColumn>
+                            <Leaderboard.TableColumn>{entry.count}</Leaderboard.TableColumn>
                         </Leaderboard.TableRow>
                     )
                 })}
             </Leaderboard.Table>
-        </Leaderboard.Layout>
+        </ViewLayout>
     )
 }
 
 const Leaderboard = {
-    Layout: Styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 200px;
-    `,
     Table: Styled.div`
     margin-top: 30px;
     display: flex;

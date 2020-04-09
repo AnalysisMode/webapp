@@ -44,4 +44,7 @@ export const theme = {
         small: 15,
         tiny: 10,
     },
+    layout: {
+        width: 1440,
+    },
 }

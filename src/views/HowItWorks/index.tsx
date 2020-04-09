@@ -1,9 +1,10 @@
 // libs
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Styled from 'styled-components'
 import { navigate } from 'hookrouter'
 
 // components
+import ViewLayout from '../../components/ViewLayout'
 import ViewTitle from '../../components/ViewTitle'
 import SubTitle from '../../components/SubTitle'
 import { Button } from '../../components/Button'
@@ -15,7 +16,7 @@ import HowItWorks3 from '../../assets/howitworks3.png'
 
 export default () => {
     return (
-        <HowItWorks.Layout>
+        <ViewLayout>
             <ViewTitle
                 title={'how it works'}
                 subtitle={'Learn how to contribute in 3 easy steps'}
@@ -50,21 +51,15 @@ export default () => {
             >
                 play the puzzle
             </Button>
-        </HowItWorks.Layout>
+        </ViewLayout>
     )
 }
 
 const HowItWorks = {
-    Layout: Styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 200px;
-  `,
     SubTitleWrapper: Styled.div`
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 70px;
-  `,
+      margin-top: 50px;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 70px;
+    `,
 }

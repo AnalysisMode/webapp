@@ -1,9 +1,9 @@
 // libs
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Styled from 'styled-components'
-import { navigate } from 'hookrouter'
 
 // components
+import ViewLayout from '../../components/ViewLayout'
 import Hero from '../../components/Hero'
 import LandingPageInfo from '../../components/LandingPageInfo'
 
@@ -22,17 +22,12 @@ export default () => {
 
 const Home = {
     Layout: Styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: url(${virus}) ${(props) => props.theme.colors.dark['shade-1']};
-    background-repeat: no-repeat;
-    background-position: 275% 75%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: url(${virus}) ${(props) => props.theme.colors.dark['shade-1']};
+      background-repeat: no-repeat;
+      background-position: 275% 75%;
     `,
-    Container: Styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 200px;
-    `,
+    Container: Styled(ViewLayout)``,
 }
