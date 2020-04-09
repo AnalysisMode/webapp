@@ -26,11 +26,7 @@ const team: TeamMember[] = [
     },
     {
         name: 'Ayana Martins',
-        expertise: [
-            'Research',
-            'Data Science',
-            'PhD in Genetics and Molecular Biology',
-        ],
+        expertise: ['Research', 'Data Science', 'PhD in Computational Biology'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C4D03AQGTFQVRgNhO8Q/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=OGT093xIqv5ATc0deriFx-edD-eBaNE2kwUcJkQ-TcE',
         linkedinUrl: 'https://www.linkedin.com/in/ayana-martins/',
