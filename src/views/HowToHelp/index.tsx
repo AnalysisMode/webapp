@@ -52,19 +52,21 @@ const HowToHelp = {
       margin-top: 50px;
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
+      justify-content: center;
       width: 100%;
       margin-bottom: 70px;
+      flex-wrap: wrap;
     `,
     Box: Styled.div`
       display: flex;
       flex-direction: column;
-      flex: 1;
-      background: ${(props) => props.theme.colors.dark['shade-2']};
       align-items: center;
-
-      &:not(:nth-last-child(1)) {
-        margin-right: 20px;
-      }
+      flex: 0 0 350px;
+      min-height: 310px;
+      background: ${(props) => props.theme.colors.dark['shade-2']};
+      margin: 0 20px;
+      margin-bottom: 20px;
     `,
     Title: Styled.h3`
       display: flex;

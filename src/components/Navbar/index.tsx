@@ -52,14 +52,14 @@ const Navbar = {
     Nav: Styled.div`
       display: flex;
       
-      @media (max-width: 1200px) {
+      @media (max-width: 900px) {
         display: none;
       }
     `,
     NavMobile: Styled.div`
       display: flex;
       
-      @media (min-width: 1200px) {
+      @media (min-width: 900px) {
         display: none;
       }
     `,

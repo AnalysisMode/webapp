@@ -61,5 +61,6 @@ const HowItWorks = {
       display: flex;
       flex-direction: row;
       margin-bottom: 70px;
+      flex-wrap: wrap;
     `,
 }

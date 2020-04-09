@@ -25,6 +25,7 @@ const SubTitle = {
     flex: 1;
     align-items: center;
     text-align: center;
+    min-width: 350px;
 
     &:not(:nth-last-child(1)) {
       margin-right: 30px;
