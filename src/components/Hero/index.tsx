@@ -12,13 +12,10 @@ export default () => {
     return (
         <Hero.Layout>
             <Hero.Left>
-                <Hero.Title>
-                    Help finding the Vaccine Formula for Corona Virus.
-                </Hero.Title>
+                <Hero.Title>Help finding the Vaccine Formula for Corona Virus.</Hero.Title>
                 <Hero.Description>
-                    This game empowers people to find patterns and
-                    configurations that later will be used to teach an
-                    artificial intelligence (AI) to predict vaccine formulas.
+                    This game empowers people to find patterns and configurations that later will be
+                    used to teach an artificial intelligence (AI) to predict vaccine formulas.
                 </Hero.Description>
                 <Hero.Buttons>
                     <Button
@@ -39,49 +36,44 @@ export default () => {
                     </Button>
                 </Hero.Buttons>
             </Hero.Left>
-            <Hero.Right>
-                <Hero.Logo src={virus} />
-            </Hero.Right>
         </Hero.Layout>
     )
 }
 
 const Hero = {
     Layout: Styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 80px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 510px;
+      width: 100%;
+      margin-bottom: 80px;
+      background-image: url(${virus});
+      background-repeat: no-repeat;
+      background-size: 510px 510px;
+      background-position: center right;
     `,
     Left: Styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      max-width: 700px;
     `,
     Title: Styled.div`
-    display: flex;
-    font-weight: bold;
-    font-family: ${(props) => props.theme.font.family.title};
-    font-size: ${(props) => props.theme.font.size.large};
-    color: ${(props) => props.theme.colors.light['shade-1']};
+      display: flex;
+      font-weight: bold;
+      font-family: ${(props) => props.theme.font.family.title};
+      font-size: ${(props) => props.theme.font.size.large};
+      color: ${(props) => props.theme.colors.light['shade-1']};
     `,
     Description: Styled.div`
-    display: flex;
-    color: ${(props) => props.theme.colors.light['shade-1']};
+      display: flex;
+      color: ${(props) => props.theme.colors.light['shade-1']};
     `,
     Buttons: Styled.div`
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-    `,
-    Right: Styled.div`
-    display: flex;
-    justify-content: flex-end;
-    flex: 1;
-    `,
-    Logo: Styled.img`
-    width: 510px;
-    height: 510px;
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
     `,
 }

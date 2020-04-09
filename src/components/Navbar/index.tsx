@@ -31,17 +31,20 @@ export default () => {
 const Navbar = {
     Wrapper: Styled.header`
       display: flex;
-      height: 150px;
-      margin: 0 200px;
-      background: transparent;
       align-items: center;
+      height: 150px;
+      width: 100%;
+      max-width: ${({ theme }) => theme.layout.width}px;
+      background: transparent;
+      margin: 0 auto;
+      padding: 0 20px;
     `,
     Layout: Styled.div`
       display: flex;
+      flex: 1;
       flex-direction: row;
       height: 45px;
       justify-content: space-between;
-      width: 100%;
     `,
     Brand: Styled.div`
       display: flex;
@@ -49,14 +52,14 @@ const Navbar = {
     Nav: Styled.div`
       display: flex;
       
-      @media (max-width: 1200px) {
+      @media (max-width: 900px) {
         display: none;
       }
     `,
     NavMobile: Styled.div`
       display: flex;
       
-      @media (min-width: 1200px) {
+      @media (min-width: 900px) {
         display: none;
       }
     `,
