@@ -49,7 +49,6 @@ export default () => {
                     )
                 })}
             </Team.TeamWrapper>
-        </Team.Layout>
         </ViewLayout>
     )
 }

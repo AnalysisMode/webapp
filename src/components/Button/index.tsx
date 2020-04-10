@@ -23,9 +23,9 @@ const StyledButton = styled.button<Props>`
         transition: all 0.2s ease-out;
     }
 
-    :not(last-child) {
+    &:not(:nth-last-child(1)) {
         margin-right: 20px;
-    }
+      }
 
     ${({ disabled }) =>
         disabled &&
@@ -73,18 +73,9 @@ const StyledButton = styled.button<Props>`
 
 `
 
-export const Button: FC<Props> = ({
-    variant = 'primary',
-    disabled = false,
-    onClick,
-    children,
-}) => {
+export const Button: FC<Props> = ({ variant = 'primary', disabled = false, onClick, children }) => {
     return (
-        <StyledButton
-            variant={variant}
-            onClick={onClick ? onClick : undefined}
-            disabled={disabled}
-        >
+        <StyledButton variant={variant} onClick={onClick ? onClick : undefined} disabled={disabled}>
             {children}
         </StyledButton>
     )

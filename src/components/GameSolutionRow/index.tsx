@@ -1,19 +1,17 @@
 // libs
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Styled from 'styled-components'
 
 // components
 import GameSolutionBox from '../../components/GameSolutionBox'
 
-import { Affinity, AffinityType, MappedAffinities } from '../../models'
+import { MappedAffinities } from '../../models'
 
 type GameSolutionRowProp = {
     currentColumn: number
 }
 
 export default ({ currentColumn }: GameSolutionRowProp) => {
-    const [affinities, setAffinities] = useState<Affinity[]>([])
-
     return (
         <GameSolutionRow.Wrapper>
             {MappedAffinities.map((affinity, i) => {

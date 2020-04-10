@@ -1,7 +1,8 @@
 // libs
-import React from 'react'
+import React, { useState } from 'react'
 import Styled from 'styled-components'
 
+// components
 import GameMatrixBox from '../../components/GameMatrixBox'
 
 type GameMatrixProp = {
@@ -20,21 +21,9 @@ const createMatrix = ({ gameData, currentColumn }: GameMatrixProp) => {
 
     for (let i = 0; i < gameData.length; i++) {
         if (i % 5 === currentColumn) {
-            matrix.push(
-                <GameMatrixBox
-                    isActive={true}
-                    symbol={gameData[i]}
-                    key={`gmb-${i}`}
-                />
-            )
+            matrix.push(<GameMatrixBox isActive={true} symbol={gameData[i]} key={`gmb-${i}`} />)
         } else {
-            matrix.push(
-                <GameMatrixBox
-                    isActive={false}
-                    symbol={gameData[i]}
-                    key={`gmb-${i}`}
-                />
-            )
+            matrix.push(<GameMatrixBox isActive={false} symbol={gameData[i]} key={`gmb-${i}`} />)
         }
     }
 

@@ -25,9 +25,7 @@ const GameMatrixBox = {
   margin-right: 15px;
   margin-bottom: 15px;
   background: ${(props) =>
-      props.isActive
-          ? props.theme.colors.brown
-          : props.theme.colors.dark['shade-2']};
+      props.isActive ? props.theme.colors.brown : props.theme.colors.dark['shade-2']};
   `,
     Symbol: Styled.span`
   display: flex;
@@ -40,5 +38,11 @@ const GameMatrixBox = {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: ${(props) => props.theme.font.size.large};
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+   -khtml-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   `,
 }

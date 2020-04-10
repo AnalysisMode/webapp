@@ -4,11 +4,11 @@ export interface Affinity {
 }
 
 export enum AffinityType {
-    Polarity,
-    Charge,
-    Hydrophilicity,
-    Aromaticity,
-    Ionizability,
+    Polarity = 'Polarity',
+    Charge = 'Charge',
+    Hydrophilicity = 'Hydrophilicity',
+    Aromaticity = 'Aromaticity',
+    Ionizability = 'Ionizability',
 }
 
 export interface Affinities {

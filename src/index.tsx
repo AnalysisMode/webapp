@@ -2,6 +2,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { ThemeProvider } from 'styled-components'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 
 // components
 import App from './views/App'
@@ -14,10 +16,16 @@ import 'sanitize.css'
 import 'sanitize.css/forms.css'
 import 'sanitize.css/typography.css'
 
+import reducers from './reducers'
+
+const store = createStore(reducers)
+
 ReactDOM.render(
     <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <App />
+        <Provider store={store}>
+            <GlobalStyle />
+            <App />
+        </Provider>
     </ThemeProvider>,
     document.getElementById('root')
 )
