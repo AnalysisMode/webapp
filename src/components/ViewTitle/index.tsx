@@ -20,7 +20,7 @@ const ViewTitle = {
     Wrapper: Styled.div`
     display: flex;
     flex-direction: column;
-    width: 80%;
+    max-width: 720px;
     align-items: center;
     text-align: center;
   `,

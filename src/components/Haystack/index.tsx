@@ -33,6 +33,10 @@ const Haystack = {
       display: flex;
       flex-direction: row;
       align-items: center;
+
+      @media (max-width: 900px) {
+        flex-direction: column;
+      }
     `,
     Left: Styled.div`
       display: flex;
@@ -44,50 +48,37 @@ const Haystack = {
       flex-direction: row;
       justify-content: flex-end;
       flex: 1;
-    `,
-    OuterCircle: Styled.div`
-      background: ${(props) => props.theme.colors.primaryGreen};
-      border-radius: 50%;
-      height: 400px;
-      width: 400px;
-      position: relative;
 
       @media (max-width: 900px) {
-        transform: scale(0.75);
+        margin-top: 30px;
+        text-align: center;
       }
     `,
-    InnerCircle: Styled.div`
-      position: absolute;
-      background: ${(props) => props.theme.colors.darkerGreen};
+    OuterCircle: Styled.div`
       border-radius: 50%;
-      height: 394px;
-      width: 394px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      border: 3px solid ${(props) => props.theme.colors.primaryGreen};
+    `,
+    InnerCircle: Styled.div`
+      border-radius: 50%;
+      border: 20px solid ${(props) => props.theme.colors.darkerGreen};
     `,
     MostInnerCircle: Styled.div`
-      position: absolute;
-      background: ${(props) => props.theme.colors.dark['shade-1']};
       border-radius: 50%;
-      height: 354px;
-      width: 354px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      border: 14px solid ${(props) => props.theme.colors.dark['shade-1']};
     `,
     Image: Styled.div`
-      position: absolute;
       background: url(${haystack});
-      border-radius: 50%;
-      padding: 5px;
-      height: 334px;
-      width: 334px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       background-repeat: no-repeat;
       background-size: contain;
+      border-radius: 50%;
+      padding: 5px;
+      width: 272px;
+      height: 272px;
+
+      @media (max-width: 900px) {
+        width: 200px;
+        height: 200px;
+      }
     `,
     Subtitle: Styled.div`
       display: flex;
