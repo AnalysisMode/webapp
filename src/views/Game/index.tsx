@@ -105,6 +105,7 @@ const Game = {
     background: url(${virus}) ${(props) => props.theme.colors.dark['shade-1']};
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: contain;
     `,
     Container: Styled(ViewLayout)``,
     StatusRow: Styled.div`
