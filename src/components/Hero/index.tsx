@@ -47,7 +47,7 @@ const Hero = {
       align-items: center;
       height: 510px;
       width: 100%;
-      margin-bottom: 80px;
+      margin-bottom: 40px;
       background-image: url(${virus});
       background-repeat: no-repeat;
       background-size: 510px 510px;
