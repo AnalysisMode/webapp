@@ -1,8 +1,8 @@
 // libs
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Styled from 'styled-components'
-
 // components
+import ViewLayout from '../../components/ViewLayout'
 import ViewTitle from '../../components/ViewTitle'
 import TeamMemberCard from '../../components/TeamMemberCard'
 
@@ -11,7 +11,7 @@ import advisors from '../../utils/advisors'
 
 export default () => {
     return (
-        <Team.Layout>
+        <ViewLayout>
             <ViewTitle
                 title={'The Team'}
                 subtitle={'Those who seek your contribution'}
@@ -30,6 +30,7 @@ export default () => {
                     )
                 })}
             </Team.TeamWrapper>
+
             <ViewTitle
                 title={'Supporters & Advisors'}
                 subtitle={'Those who are helping the project'}
@@ -49,17 +50,13 @@ export default () => {
                 })}
             </Team.TeamWrapper>
         </Team.Layout>
+        </ViewLayout>
     )
 }
 
 const Team = {
-    Layout: Styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 200px;
-  `,
     TeamWrapper: Styled.div`
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

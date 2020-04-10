@@ -10,23 +10,7 @@ import GameSolutionRow from '../../components/GameSolutionRow'
 
 import virus from '../../assets/virus.png'
 
-const data = [
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-    '◉',
-]
+const data = ['◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉']
 
 export default () => {
     const [currentStep, setCurrentStep] = useState(0)
@@ -40,14 +24,14 @@ export default () => {
 
 const GameTutorial = {
     Layout: Styled.div`
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  background: url(${virus}) ${(props) => props.theme.colors.dark['shade-1']};
-  background-repeat: no-repeat;
-  background-position: center center;
-  `,
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      background: url(${virus}) ${(props) => props.theme.colors.dark['shade-1']};
+      background-repeat: no-repeat;
+      background-position: center center;
+    `,
 }
 
 type StepProps = {
