@@ -1,6 +1,5 @@
 // libs
 import React, { useState, useEffect } from 'react'
-import { usePath } from 'hookrouter'
 import Styled from 'styled-components'
 
 import { AffinityType } from '../../models'
@@ -21,14 +20,13 @@ type WrapperProps = {
 }
 
 export default ({ symbols, isActive, affinity, activeSymbol }: GameSolutionBoxProp) => {
-    const isTutorial = usePath().indexOf('/game-tutorial') > -1
     const dispatch = useDispatch()
 
     const defaultSymbol = activeSymbol || symbols[0]
     const [currentSymbol, setSymbol] = useState(defaultSymbol)
 
     const onClick = (direction: number = 1) => {
-        if (isTutorial || !isActive) {
+        if (!isActive) {
             return
         }
 

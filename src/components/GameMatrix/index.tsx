@@ -1,5 +1,5 @@
 // libs
-import React, { useState } from 'react'
+import React from 'react'
 import Styled from 'styled-components'
 
 // components
@@ -38,7 +38,6 @@ const GameMatrix = {
   align-items: center;
   justify-content: center;
   max-width: 495px;
-  margin: 50px 0 0 0;
   padding-top: 15px;
   padding-left: 15px;
   background: ${(props) => props.theme.colors.dark['shade-3']};

@@ -1,5 +1,5 @@
 // libs
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Styled from 'styled-components'
 
 // components
