@@ -15,32 +15,21 @@ const advisors: AdvisorsMember[] = [
     },
     {
         name: 'Tessy (HRH Princess De Luxembourg) Antony - de Nassau',
-        expertise: [
-            'Doctorate in Integrative Medicine and PHD candidate',
-            'Quantum University',
-        ],
+        expertise: ['Doctorate in Integrative Medicine and PHD candidate', 'Quantum University'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C4D03AQFd0QRJUk9vng/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=8nLtMbREOsGMhwiBoS9qyZmIOiCTPeh84P1kpkAIGIg',
         linkedinUrl: 'https://www.linkedin.com/in/tessyd/',
     },
     {
         name: 'Peter Vesterbacka',
-        expertise: [
-            'Angry Birds creator',
-            'Founder of Slush',
-            'Co-founder FinestNinja',
-        ],
+        expertise: ['Angry Birds creator', 'Founder of Slush', 'Co-founder FinestNinja'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C5603AQGQ1Gtwxt7dTg/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=i-Wxif5ZzWXlQCX9o43D03l50nz-SJnALp7YD2gOUM0',
         linkedinUrl: 'https://www.linkedin.com/in/petervesterbacka/',
     },
     {
         name: 'Alessia Officio',
-        expertise: [
-            'Mentor & Strategic Consulting',
-            'Lead Mentor',
-            'TechStars',
-        ],
+        expertise: ['Mentor & Strategic Consulting', 'Lead Mentor', 'TechStars'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C4E03AQEwqAUPpJ9nCQ/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=r2WvpuR6gAybhgAcPxc94YoQUrVKv0cvobyoLaf0e08',
         linkedinUrl: 'https://www.linkedin.com/in/alessia-officio-3134499/',
@@ -61,8 +50,7 @@ const advisors: AdvisorsMember[] = [
         expertise: ['Manager of Strategic initiatives', 'Swedbank'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C4E03AQF0ytTnVcq1XA/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=qYGZD9ne6OX6fF-S0EX6Nfb5PzoXjT--Hdvz7JnJhUo',
-        linkedinUrl:
-            'https://www.linkedin.com/in/eleonora-sakalauskait%C4%97-9553193/',
+        linkedinUrl: 'https://www.linkedin.com/in/eleonora-sakalauskait%C4%97-9553193/',
     },
     {
         name: 'Paulius Yamin',
@@ -73,21 +61,14 @@ const advisors: AdvisorsMember[] = [
     },
     {
         name: 'Greg Anderson',
-        expertise: [
-            'Marketing professional',
-            'Ex-journalist',
-            'Venture Capital Comms',
-        ],
+        expertise: ['Marketing professional', 'Ex-journalist', 'Venture Capital Comms'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C4E03AQE1ZX-LMydPGg/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=cVb8gKvAsHq9sz3O3bEEQP3Hd_NptBlVhMlVGnp6lNc',
         linkedinUrl: 'https://www.linkedin.com/in/greganderson87',
     },
     {
         name: 'Eric Coles',
-        expertise: [
-            'G4A Digital Health Partnerships Associate',
-            'Bayer G4A Health',
-        ],
+        expertise: ['G4A Digital Health Partnerships Associate', 'Bayer G4A Health'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C4D03AQEJR3fO6ppT_Q/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=vvUGy6lXtmBA5qeYvdvQnFKVkm7nDRJ91__w9-KBtHU',
         linkedinUrl: 'https://www.linkedin.com/in/eric-coles-0b185114a/',
@@ -101,10 +82,7 @@ const advisors: AdvisorsMember[] = [
     },
     {
         name: 'Jovita Tamosaityte Sriubiske',
-        expertise: [
-            'Strategy and Sustainability Specialist',
-            'Our Global Communities',
-        ],
+        expertise: ['Strategy and Sustainability Specialist', 'Our Global Communities'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C4E03AQHydOpZmOdVjA/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=G1fdjmxZdQhaEFsl4rT50yFF8_wkNY0WyKEemelyJ2c',
         linkedinUrl: 'https://www.linkedin.com/in/jovitasriubiske',
@@ -128,8 +106,7 @@ const advisors: AdvisorsMember[] = [
         expertise: ['Mentor', 'LT Big Brother'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C5603AQFZl9jzL3-ZUg/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=RyFZQrjr5YdpctPCCTXkv-9VWPLoOmb3CR0UUgXDvpE',
-        linkedinUrl:
-            'https://www.linkedin.com/in/romualdas-%C4%AFsoda-7b478334/',
+        linkedinUrl: 'https://www.linkedin.com/in/romualdas-%C4%AFsoda-7b478334/',
     },
     {
         name: 'Greta Petrosiute',
@@ -140,10 +117,7 @@ const advisors: AdvisorsMember[] = [
     },
     {
         name: 'Azzy (Ąžuolas) Marma',
-        expertise: [
-            'Business Development Manager',
-            'Aimera Engagement Marketing',
-        ],
+        expertise: ['Business Development Manager', 'Aimera Engagement Marketing'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C4D03AQGZM1rDlTlrjw/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=EOnr6-QeeHdU7Y0U0rJdKnXsDOMviRTBsBVxPwOyFTc',
         linkedinUrl: 'https://www.linkedin.com/in/azuolasmarma/',
