@@ -1,7 +1,12 @@
 import { combineReducers } from 'redux'
-// reduxers
-import auth from './reducers/auth'
-import affinities from './reducers/affinities'
+// reducers
+import auth, { IAuthState } from './reducers/auth'
+import affinities, { GameSet } from './reducers/affinities'
+
+export interface IRootState {
+    auth: IAuthState
+    affinities: GameSet[]
+}
 
 export default combineReducers({
     auth,

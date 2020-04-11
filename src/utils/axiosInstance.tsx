@@ -2,7 +2,8 @@ import axios from 'axios'
 import { setAuthToken, getAuthToken } from './authToken'
 
 const instance = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL,
+    // baseURL: process.env.REACT_APP_BASE_URL,
+    baseURL: 'http://199.247.6.71:4000',
 })
 
 /* request interceptor */

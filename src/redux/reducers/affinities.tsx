@@ -2,15 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 // types
 import { AffinityType, SequencedAffinity } from '../../models'
 
-type Affinities = {
-    [x in AffinityType]: string
-}
-
-interface GameSet {
-    sequenceNumber: Number
-    affinities: Affinities
-}
-
 const defaultAffinities: Affinities = {
     Polarity: '',
     Charge: '',
@@ -50,3 +41,14 @@ const affinitiesSlice = createSlice({
 export const { updateAffinity } = affinitiesSlice.actions
 
 export default affinitiesSlice.reducer
+
+// types
+
+type Affinities = {
+    [x in AffinityType]: string
+}
+
+export interface GameSet {
+    sequenceNumber: Number
+    affinities: Affinities
+}

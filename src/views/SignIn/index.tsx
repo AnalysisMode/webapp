@@ -2,23 +2,26 @@
 import React, { useCallback } from 'react'
 import Styled from 'styled-components'
 // redux
-import { useDispatch } from 'react-redux'
-// utils
-import axios from '../../utils/axiosInstance'
+import { useDispatch, useSelector } from 'react-redux'
+import { siginIn, IAuthUser } from '../../redux/reducers/auth'
+import { IRootState } from '../../redux/rootReducer'
 // components
 import ViewLayout from '../../components/ViewLayout'
 import ViewTitle from '../../components/ViewTitle'
 import { Button } from '../../components/Button'
 
-const API_URL = 'http://199.247.6.71:4000'
-
 export default () => {
-    const signIn = useCallback(() => {
-        axios.post(API_URL + '/user/authenticate', {
-            name: 'test',
-            password: 'test',
-        })
-    }, [axios])
+    const dispatch = useDispatch()
+    const user = useSelector<IRootState, IAuthUser | null>((state) => state.auth.user)
+
+    const onSignIn = useCallback(() => {
+        dispatch(
+            siginIn({
+                name: 'test',
+                password: 'test',
+            })
+        )
+    }, [siginIn])
 
     const signUp = useCallback(() => {
         alert('signUp')
@@ -34,7 +37,17 @@ export default () => {
                     unknown printer took a galley of type and scrambled it to make a type specimen
                     book.
                 </p>
-                <Button onClick={signIn} variant="primary">
+
+                {user && (
+                    <>
+                        <p>Username: ${user.name}</p>
+                        <p>Country: ${user.country}</p>
+                        <p>UserId: ${user._id}</p>
+                        <p>Level: ${user.level}</p>
+                    </>
+                )}
+
+                <Button onClick={onSignIn} variant="primary">
                     Sign In
                 </Button>
                 <Button onClick={signUp} variant="secondary">
