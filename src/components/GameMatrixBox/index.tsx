@@ -37,7 +37,7 @@ const GameMatrixBox = {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: ${(props) => props.theme.font.size.large};
+  font-size: ${(props) => props.theme.font.size.medium};
   -webkit-touch-callout: none;
   -webkit-user-select: none;
    -khtml-user-select: none;

@@ -11,7 +11,7 @@ type GameMatrixProp = {
 }
 
 export default ({ gameData, currentColumn }: GameMatrixProp) => {
-    const matrix = createMatrix({ gameData, currentColumn })
+    const matrix = gameData && gameData.length > 0 ? createMatrix({ gameData, currentColumn }) : []
 
     return <GameMatrix.GameWrapper>{matrix}</GameMatrix.GameWrapper>
 }

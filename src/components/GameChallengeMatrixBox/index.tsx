@@ -25,7 +25,7 @@ const GameChallengeMatrixBox = {
   margin-bottom: 10px;
   background: ${(props) => (props.isActive ? props.theme.colors.brown : 'transparent')};
   border: 1px solid ${(props) => props.theme.colors.light['shade-1']};
-  flex: 1 0 13%;
+  flex: 1 0 30%;
   `,
     Symbol: Styled.span`
   display: flex;

@@ -10,11 +10,11 @@ import GameChallenge from '../../components/GameChallenge'
 import GameSolutionRow from '../../components/GameSolutionRow'
 import { Button } from '../../components/Button'
 
+import { GameSet } from '../../models'
+
 import virus from '../../assets/virus.png'
 import badge from '../../assets/badge.png'
 import { useStore } from 'react-redux'
-
-const data = ['◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉', '◉']
 
 export default () => {
     const skipped = localStorage.getItem('skipped-tutorial')
@@ -25,18 +25,108 @@ export default () => {
         }
     }, [skipped])
 
-    const [currentColumn, setCurrentColumn] = useState(0)
     const store = useStore()
+    const [currentColumn, setCurrentColumn] = useState(0)
+    const [currentSequence, setCurrentSequence] = useState(0)
+    const [gameSetFinished, setGameSetFinished] = useState(false)
+    const [currentDataSet, setCurrentDataSet] = useState<GameSet>({
+        sequences: [],
+        matrix: [],
+    })
 
     useEffect(() => {
-        // get symbols here on column change
-        console.log(store.getState())
-    }, [currentColumn])
+        ;(async () => {
+            // const resultData = await axios.get('/getdata')
+            const resultData: GameSet = {
+                sequences: ['ABC', 'ABC', 'ABC'],
+                matrix: [
+                    [
+                        '▲▼',
+                        'MW',
+                        '◯◉',
+                        '▲▲',
+                        '▲▲',
+                        '▲▼',
+                        '◯◯',
+                        'WW',
+                        'MW',
+                        '▼▲',
+                        '▲▲',
+                        '==',
+                        '=+',
+                        '▲▼',
+                        'WM',
+                    ],
+                    [
+                        '▲▼',
+                        '-=',
+                        'MM',
+                        '◯◉',
+                        'MW',
+                        '▼▲',
+                        'MW',
+                        'MM',
+                        '==',
+                        '=+',
+                        '==',
+                        '◯◯',
+                        'MM',
+                        '▲▲',
+                        '▲▼',
+                    ],
+                    [
+                        '◉◯',
+                        '◯◉',
+                        '▲▼',
+                        '▲▼',
+                        '◯◉',
+                        '==',
+                        '▼▲',
+                        '-=',
+                        '=-',
+                        'WW',
+                        'WW',
+                        '==',
+                        '==',
+                        'WW',
+                        'WM',
+                    ],
+                ],
+            }
+
+            setCurrentDataSet(resultData)
+        })()
+    }, [])
+
+    useEffect(() => {
+        if (
+            currentSequence === currentDataSet.sequences.length - 1 &&
+            currentColumn ===
+                currentDataSet.matrix[currentSequence].length / currentDataSet.sequences.length - 1
+        ) {
+            setGameSetFinished(true)
+        } else {
+            setGameSetFinished(false)
+        }
+    }, [currentColumn, currentSequence, currentDataSet.matrix, currentDataSet.sequences.length])
 
     const onResetClick = () => {}
 
     const onNextClick = () => {
-        setCurrentColumn(currentColumn + 1)
+        if (
+            currentColumn <=
+            currentDataSet.matrix[currentSequence].length / currentDataSet.sequences.length - 2
+        ) {
+            setCurrentColumn(currentColumn + 1)
+        } else {
+            setCurrentColumn(0)
+            setCurrentSequence(currentSequence + 1)
+        }
+    }
+
+    const onSubmitClick = () => {
+        navigate('/thankyou')
+        // console.log(store.getState())
     }
 
     return (
@@ -62,31 +152,45 @@ export default () => {
 
                 <Game.GameRow>
                     <Game.ChallengeWrapper>
-                        <GameChallenge currentColumn={currentColumn} key={'game-challenge'} />
+                        <GameChallenge
+                            currentSequence={currentSequence}
+                            sequences={currentDataSet.sequences}
+                            key={`game-challenge-${currentDataSet.sequences}`}
+                        />
                     </Game.ChallengeWrapper>
                     <Game.GameWrapper>
                         <GameMatrix
                             currentColumn={currentColumn}
-                            gameData={data}
-                            key={`game-matrix`}
+                            gameData={currentDataSet.matrix[currentSequence]}
+                            key={`game-matrix-${currentSequence}`}
                         />
-                        <GameSolutionRow currentColumn={currentColumn} key={`game-solution-row`} />
+                        <GameSolutionRow
+                            currentSequence={currentSequence}
+                            currentColumn={currentColumn}
+                            key={`game-solution-row`}
+                        />
                         <Game.ButtonsRow>
-                            <Button
+                            {/* <Button
                                 disabled={false}
                                 key={'skip-button'}
                                 onClick={onResetClick}
                                 variant={'link'}
                             >
                                 skip
-                            </Button>
+                            </Button> */}
                             <Button
                                 disabled={false}
                                 key={'next-button'}
-                                onClick={onNextClick}
+                                onClick={gameSetFinished ? onSubmitClick : onNextClick}
                                 variant={'primary'}
                             >
-                                save &amp; next
+                                {currentSequence === currentDataSet.sequences.length - 1 &&
+                                currentColumn ===
+                                    currentDataSet.matrix[currentSequence].length /
+                                        currentDataSet.sequences.length -
+                                        1
+                                    ? 'submit the puzzle'
+                                    : 'save & next'}
                             </Button>
                         </Game.ButtonsRow>
                     </Game.GameWrapper>

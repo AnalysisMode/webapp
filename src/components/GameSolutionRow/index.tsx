@@ -8,10 +8,11 @@ import GameSolutionBox from '../../components/GameSolutionBox'
 import { MappedAffinities } from '../../models'
 
 type GameSolutionRowProp = {
-    currentColumn: number
+    currentColumn: Number
+    currentSequence: Number
 }
 
-export default ({ currentColumn }: GameSolutionRowProp) => {
+export default ({ currentColumn, currentSequence }: GameSolutionRowProp) => {
     return (
         <GameSolutionRow.Wrapper>
             {MappedAffinities.map((affinity, i) => {
@@ -20,6 +21,7 @@ export default ({ currentColumn }: GameSolutionRowProp) => {
                         isActive={i === currentColumn}
                         symbols={affinity.symbols}
                         affinity={affinity.type}
+                        currentSequence={currentSequence}
                         key={`box-${affinity.type}`}
                     />
                 )

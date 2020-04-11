@@ -13,13 +13,20 @@ type GameSolutionBoxProp = {
     isActive: boolean
     affinity: AffinityType
     activeSymbol?: string
+    currentSequence: Number
 }
 
 type WrapperProps = {
     isActive: boolean
 }
 
-export default ({ symbols, isActive, affinity, activeSymbol }: GameSolutionBoxProp) => {
+export default ({
+    symbols,
+    isActive,
+    affinity,
+    activeSymbol,
+    currentSequence,
+}: GameSolutionBoxProp) => {
     const dispatch = useDispatch()
 
     const defaultSymbol = activeSymbol || symbols[0]
@@ -56,8 +63,18 @@ export default ({ symbols, isActive, affinity, activeSymbol }: GameSolutionBoxPr
     }
 
     useEffect(() => {
-        dispatch({ type: UPDATE_AFFINITY, payload: { type: affinity, value: currentSymbol } })
-    })
+        setSymbol(defaultSymbol)
+    }, [currentSequence, defaultSymbol])
+
+    useEffect(() => {
+        dispatch({
+            type: UPDATE_AFFINITY,
+            payload: {
+                affinity: { type: affinity, value: currentSymbol },
+                sequence: currentSequence,
+            },
+        })
+    }, [currentSymbol, affinity, currentSequence, dispatch])
 
     return (
         <GameMatrixBox.SymbolWrapper>

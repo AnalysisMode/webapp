@@ -3,6 +3,11 @@ export interface Affinity {
     value: string
 }
 
+export interface SequencedAffinity {
+    sequence: Number
+    affinity: Affinity
+}
+
 export enum AffinityType {
     Polarity = 'Polarity',
     Charge = 'Charge',
@@ -16,9 +21,14 @@ export interface Affinities {
     symbols: string[]
 }
 
+export interface GameSet {
+    sequences: string[]
+    matrix: string[][]
+}
+
 export const PolaritySymbols = ['?', '▲', '▼']
 export const ChargeSymbols = ['?', '+', '-']
-export const HydrophilicitySymbols = ['?', '&#xf043;', '&#xf5c7;']
+export const HydrophilicitySymbols = ['?', 'M', 'W']
 export const AromaticitySymbols = ['?', '⬢', '⬡']
 export const IonizabilitySymbols = ['?', '◉', '◯']
 

@@ -7,44 +7,11 @@ import axios from 'axios'
 import GameChallengeMatrixBox from '../GameChallengeMatrixBox'
 
 type GameChallengeProp = {
-    currentColumn: number
+    currentSequence: number
+    sequences: string[]
 }
 
-export default ({ currentColumn }: GameChallengeProp) => {
-    const [sequences, setSequences] = useState<string[]>([])
-
-    useEffect(() => {
-        ;(async () => {
-            // const resultSequences = await axios.get('/sequences')
-            const resultSequences = {
-                data: [
-                    'G',
-                    'S',
-                    'F',
-                    'C',
-                    'T',
-                    'Q',
-                    'D',
-                    'N',
-                    'I',
-                    'K',
-                    'D',
-                    'C',
-                    'D',
-                    'V',
-                    'N',
-                    'L',
-                    'H',
-                    'S',
-                ],
-            }
-
-            if (resultSequences.data) {
-                setSequences(resultSequences.data)
-            }
-        })()
-    }, [])
-
+export default ({ currentSequence, sequences }: GameChallengeProp) => {
     return (
         <GameChallenge.Layout>
             <GameChallenge.ChallengeTitle>{'Challenge'}</GameChallenge.ChallengeTitle>
@@ -52,15 +19,19 @@ export default ({ currentColumn }: GameChallengeProp) => {
                 {'Compare these 6 aminoacids to advance to the next level.'}
             </GameChallenge.ChallengeDescription>
             <GameChallenge.ChallengeMatrixWrapper>
-                {sequences.map((sequence, i) => {
-                    return (
-                        <GameChallengeMatrixBox
-                            isActive={i % 6 === currentColumn}
-                            symbol={sequence}
-                            key={`sequence-box-${i}`}
-                        />
-                    )
-                })}
+                {sequences.length > 0 &&
+                    sequences
+                        .join('')
+                        .split('')
+                        .map((sequence, i) => {
+                            return (
+                                <GameChallengeMatrixBox
+                                    isActive={i % 3 === currentSequence}
+                                    symbol={sequence}
+                                    key={`sequence-box-${i}`}
+                                />
+                            )
+                        })}
             </GameChallenge.ChallengeMatrixWrapper>
         </GameChallenge.Layout>
     )
