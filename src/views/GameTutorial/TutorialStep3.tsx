@@ -44,7 +44,7 @@ export default ({ onSkipClick, onNextClick }: StepProps) => {
                 <MatrixRow />
                 <MatrixRow />
                 <MatrixResultRow />
-                <Button disabled={false} key="skip-button" onClick={onSkipClick} variant="primary">
+                <Button key="skip-button" onClick={onSkipClick} variant="primary">
                     save & next
                 </Button>
             </TutorialStyled.Matrix>
@@ -61,7 +61,7 @@ export default ({ onSkipClick, onNextClick }: StepProps) => {
             </TutorialStepThree.Description>
 
             <TutorialStepThree.ButtonsRow>
-                <Button disabled={false} key="skip-button" onClick={onSkipClick} variant="orange">
+                <Button key="skip-button" onClick={onSkipClick} variant="orange">
                     close tutorial
                 </Button>
             </TutorialStepThree.ButtonsRow>

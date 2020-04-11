@@ -8,11 +8,7 @@ type TeamMember = {
 const team: TeamMember[] = [
     {
         name: 'Tiago Sampaio',
-        expertise: [
-            'Vaccine Researcher',
-            'AI Developer',
-            'Software Engineer @ Amazon',
-        ],
+        expertise: ['Vaccine Researcher', 'AI Developer', 'Software Engineer @ Amazon'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C5603AQH0_JLa1mWWDQ/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=lyjMzLq4-DuXgo_UYsDEZ2bWxiCKf6exk6z0JXKPK3s',
         linkedinUrl: 'https://www.linkedin.com/in/trsampaio/',
@@ -48,16 +44,11 @@ const team: TeamMember[] = [
         expertise: ['Strategic Partnerships', 'COO @ ParisRio.fi'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C5603AQH_vOQK7xsjUA/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=gh0JgKPbsl70el8v3lCz2PDKHSaPe4V92w6XR4WS9M8',
-        linkedinUrl:
-            'https://www.linkedin.com/in/milda-dapkevi%C4%8Di%C5%ABt%C4%97-27ba50aa/',
+        linkedinUrl: 'https://www.linkedin.com/in/milda-dapkevi%C4%8Di%C5%ABt%C4%97-27ba50aa/',
     },
     {
         name: 'Arnold Mauragas',
-        expertise: [
-            'Business Development',
-            'UX Design',
-            'Co-Founder @ DesignDen',
-        ],
+        expertise: ['Business Development', 'UX Design', 'Co-Founder @ DesignDen'],
         imagePath:
             'https://media-exp1.licdn.com/dms/image/C4D03AQEu2JMB5zgKhA/profile-displayphoto-shrink_200_200/0?e=1591228800&v=beta&t=BuR3-8PR5cRxpTPeMH8wSzE3V2vdOMXt9JKLTEWfILI',
         linkedinUrl: 'https://www.linkedin.com/in/arnoldasmauragas/',

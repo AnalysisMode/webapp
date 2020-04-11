@@ -6,8 +6,8 @@ import ViewLayout from '../../components/ViewLayout'
 import ViewTitle from '../../components/ViewTitle'
 import TeamMemberCard from '../../components/TeamMemberCard'
 
-import team from '../../utils/team'
-import advisors from '../../utils/advisors'
+import team from '../../constants/team'
+import advisors from '../../constants/advisors'
 
 export default () => {
     return (

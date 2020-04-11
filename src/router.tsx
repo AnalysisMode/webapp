@@ -10,6 +10,7 @@ import Game from './views/Game'
 import GameTutorial from './views/GameTutorial'
 import Team from './views/Team'
 import ThankYou from './views/ThankYou'
+import SignIn from './views/SignIn'
 
 export default {
     '/': () => <Home />,
@@ -20,4 +21,5 @@ export default {
     '/game-tutorial': () => <GameTutorial />,
     '/team': () => <Team />,
     '/thankyou': () => <ThankYou />,
+    '/sign-in': () => <SignIn />,
 }

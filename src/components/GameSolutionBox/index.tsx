@@ -1,12 +1,14 @@
 // libs
 import React, { useState, useEffect } from 'react'
 import Styled from 'styled-components'
-
+// reudx
+import { useDispatch } from 'react-redux'
+import { updateAffinity } from '../../redux/reducers/affinities'
+// types
 import { AffinityType } from '../../models'
-import { UPDATE_AFFINITY } from '../../reducers'
+// assets
 import { ReactComponent as ChevronUp } from '../../assets/chevron_up.svg'
 import { ReactComponent as ChevronDown } from '../../assets/chevron_down.svg'
-import { useDispatch } from 'react-redux'
 
 type GameSolutionBoxProp = {
     symbols: string[]
@@ -67,13 +69,12 @@ export default ({
     }, [currentSequence, defaultSymbol])
 
     useEffect(() => {
-        dispatch({
-            type: UPDATE_AFFINITY,
-            payload: {
+        dispatch(
+            updateAffinity({
                 affinity: { type: affinity, value: currentSymbol },
                 sequence: currentSequence,
-            },
-        })
+            })
+        )
     }, [currentSymbol, affinity, currentSequence, dispatch])
 
     return (

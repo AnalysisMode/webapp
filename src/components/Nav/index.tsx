@@ -19,13 +19,11 @@ export default ({ isGameView }: NavProps) => {
                 <NavLink href="/leaderboard" title="leaderboard" />
                 <NavLink href="/howitworks" title="how it works" />
                 <NavLink href="/howtohelp" title="how to help" />
-                <Button
-                    disabled={false}
-                    key={'nav-game-button'}
-                    onClick={() => navigate('/game')}
-                    variant={'primary'}
-                >
+                <Button onClick={() => navigate('/game')} variant="primary">
                     play now
+                </Button>
+                <Button onClick={() => navigate('/sign-in')} variant="secondary">
+                    sign in
                 </Button>
             </Nav.Wrapper>
         )
