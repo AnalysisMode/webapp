@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import Styled from 'styled-components'
 // redux
 import { useDispatch, useSelector } from 'react-redux'
-import { swapRows, IMatrixPosition } from '../../redux/reducers/game'
+import { getPuzzle, swapRows, selectBlock, resetSelected } from '../../redux/reducers/game'
 // components
 import ViewLayout from '../../components/ViewLayout'
 import ViewTitle from '../../components/ViewTitle'
@@ -13,13 +13,15 @@ import virus from '../../assets/virus.png'
 // types
 import { IRootState } from '../../redux/rootReducer'
 import { GameSymbols } from './GameMatrixBlock'
+import { Button } from '../../components/Button'
 
 export default () => {
     const dispatch = useDispatch()
     const matrix = useSelector<IRootState, GameSymbols[][]>((state) => state.game.matrix)
-    const selected = useSelector<IRootState, IMatrixPosition[]>((state) => state.game.selected)
+    const sorter = useSelector<IRootState, number[]>((state) => state.game.sorter)
+    const selected = useSelector<IRootState, boolean[][]>((state) => state.game.selected)
 
-    const onSwapRows = useCallback(
+    const onDragRows = useCallback(
         (sIndex: number, dIndex: number) => {
             if (sIndex === dIndex) return
             dispatch(swapRows([sIndex, dIndex]))
@@ -27,13 +29,36 @@ export default () => {
         [swapRows]
     )
 
+    const onSelectBlock = useCallback(
+        (rIndex: number, cIndex: number) => {
+            dispatch(selectBlock([rIndex, cIndex]))
+        },
+        [selectBlock]
+    )
+
+    const unselectBlocks = useCallback(() => {
+        dispatch(resetSelected())
+    }, [resetSelected])
+
+    const nextPuzzle = useCallback(() => dispatch(getPuzzle()), [dispatch, getPuzzle])
+
     return (
         <GameBeta.Layout>
             <ViewTitle
                 title="Our AI learns from each puzzle solution and bring us closer to the vaccine formula."
                 subtitle=""
             />
-            <GameMatrix data={matrix} onSwapRows={onSwapRows} />
+            <GameMatrix
+                matrix={matrix}
+                sorter={sorter}
+                onDragRows={onDragRows}
+                selected={selected}
+                onSelectBlock={onSelectBlock}
+                resetSeleted={unselectBlocks}
+            />
+            <Button onClick={nextPuzzle} variant="primary" disabled>
+                next puzzle
+            </Button>
         </GameBeta.Layout>
     )
 }

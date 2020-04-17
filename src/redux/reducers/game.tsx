@@ -4,49 +4,63 @@ import axios from '../../utils/axiosInstance'
 // types
 import { GameSymbols } from '../../views/GameBeta/GameMatrixBlock'
 
-// export const getMatrix = createAsyncThunk('auth/siginIn', async (payload: ISignInPayload) => {
-//     return axios.post('/user/authenticate', payload)
-// })
+export const getPuzzle = createAsyncThunk('game/puzzle', async () => {
+    return axios.get('/puzzle', {
+        baseURL: 'https://www.analysismode.com/am',
+    })
+})
 
 const matrix = [
-    ['=', '=', '=', 'â—¯', 'â–²', 'W', 'M', 'â–¼'],
-    ['â—‰', 'M', 'M', '+', 'â–²', 'â–¼', 'â–²', '-'],
-    ['â—‰', 'â–¼', '=', 'M', 'â–¼', '=', 'W', '='],
-    ['+', 'M', 'â—¯', 'â—¯', 'â–¼', 'W', '=', 'â–²'],
-    ['â–²', 'W', 'â—‰', 'M', 'â–²', '=', 'â—‰', 'â–²'],
-    ['â—¯', '=', 'â—¯', 'W', 'â—¯', 'â–²', 'â—‰', '='],
-    ['â—¯', 'M', 'â–²', 'W', 'W', 'W', 'â—¯', '='],
-    ['â–¼', 'M', 'â–¼', 'â—¯', 'â—¯', 'â—¯', '-', 'â—¯'],
+    ['â–²', 'â–¼', 'â—¯', '=', 'â–¼', '=', 'â–¼', '='],
+    ['M', '=', 'W', '=', 'â—¯', '=', '-', 'W'],
+    ['â—¯', 'â—¯', '=', 'â–²', '=', '=', 'â–²', 'â—¯'],
+    ['W', 'â–²', 'â—¯', 'â–²', 'W', 'â—¯', '=', 'W'],
+    ['â—‰', 'â–¼', 'â–²', '=', 'M', 'W', 'â–²', 'â–²'],
+    ['=', 'W', '=', 'â—¯', 'W', 'â–¼', '=', 'â–²'],
+    ['â–²', 'W', 'â–²', 'M', 'â–²', '=', 'â–²', 'â–²'],
+    ['â—‰', 'â—¯', 'â—¯', 'â—¯', '=', 'M', 'â—¯', 'M'],
 ]
 
 const gameSlice = createSlice({
-    name: 'auth',
+    name: 'game',
     initialState: {
         matrix: matrix,
-        selected: [],
+        sequences: [],
+        puzzle_id: '',
+        sorter: [0, 1, 2, 3, 4, 5, 6, 7],
+        selected: [[], [], [], [], [], [], [], []],
     } as IGameState,
     reducers: {
-        swapRows: ({ matrix }, action) => {
+        swapRows: ({ sorter }, action) => {
             const [sIndex, dIndex] = action.payload as [number, number]
-            const temp = matrix[sIndex]
+            const temp = sorter[sIndex]
             if (sIndex > dIndex) {
-                for (let i = sIndex; i > dIndex; i--) matrix[i] = matrix[i - 1]
+                for (let i = sIndex; i > dIndex; i--) sorter[i] = sorter[i - 1]
             }
             if (sIndex < dIndex) {
-                for (let i = sIndex; i < dIndex; i++) matrix[i] = matrix[i + 1]
+                for (let i = sIndex; i < dIndex; i++) sorter[i] = sorter[i + 1]
             }
-            matrix[dIndex] = temp
+            sorter[dIndex] = temp
+        },
+        selectBlock: ({ selected }, action) => {
+            const [rIndex, cIndex] = action.payload as [number, number]
+            selected[rIndex][cIndex] = !selected[rIndex][cIndex]
+        },
+        resetSelected: (state) => {
+            state.selected = [[], [], [], [], [], [], [], []]
         },
     },
-    // extraReducers: ({ addCase }) => {
-    //     addCase(siginIn.fulfilled, (state, { payload }: any) => {
-    //         state.user = payload
-    //         state.token = payload.token
-    //     })
-    // },
+    extraReducers: ({ addCase }) => {
+        addCase(getPuzzle.fulfilled, (state, { payload }: any) => {
+            const { matrix, sequences, puzzle_id } = payload as IPuzzleResponse
+            state.matrix = matrix
+            state.sequences = sequences
+            state.puzzle_id = puzzle_id
+        })
+    },
 })
 
-export const { swapRows } = gameSlice.actions
+export const { swapRows, selectBlock, resetSelected } = gameSlice.actions
 
 export default gameSlice.reducer
 
@@ -59,5 +73,14 @@ export interface IMatrixPosition {
 
 export interface IGameState {
     matrix: GameSymbols[][]
-    selected: IMatrixPosition[]
+    sequences: string[]
+    puzzle_id: string
+    sorter: number[]
+    selected: boolean[][]
+}
+
+interface IPuzzleResponse {
+    matrix: GameSymbols[][]
+    sequences: string[]
+    puzzle_id: string
 }

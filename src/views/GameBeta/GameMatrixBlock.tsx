@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Styled from 'styled-components'
 // icons
 // https://react-icons.netlify.com/#/icons/io
@@ -14,6 +14,8 @@ import { ReactComponent as Flask } from './icons/flask.svg'
 
 interface IProps {
     symbol: GameSymbols
+    selected: boolean
+    onClick: () => void
 }
 
 export enum GameSymbols {
@@ -40,17 +42,25 @@ const schema = {
     [GameSymbols.I]: { Icon: Flask, name: 'flask', color: '#7293a2', bg: ['#e4eaed', '#bacad1'] },
 }
 
-export default ({ symbol }: IProps) => {
+export const BLOCK_SIZE = 70
+
+export default ({ symbol, selected, onClick }: IProps) => {
     const { Icon, color, bg, name } = schema[symbol]
     return (
-        <GameMatrixBlock.Wrapper bgColor={bg} className={name}>
-            <Icon color={color} width={35} />
+        <GameMatrixBlock.Wrapper
+            bgColor={bg}
+            className={name}
+            selected={selected}
+            onClick={onClick}
+        >
+            <Icon color={color} width={BLOCK_SIZE / 2} />
         </GameMatrixBlock.Wrapper>
     )
 }
 
 interface WrapperProps {
     bgColor: string | string[]
+    selected: boolean
 }
 
 interface IconProps {
@@ -62,16 +72,25 @@ const GameMatrixBlock = {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 70px;
-      height: 70px;
+      width: ${BLOCK_SIZE}px;
+      height: ${BLOCK_SIZE}px;
       border-radius: 10px;
       box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.25);
       margin-right: 7px;
       user-select: none;
+      transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+
       ${({ bgColor }) =>
           bgColor[1]
               ? `background: linear-gradient(${bgColor[0]}, ${bgColor[1]});`
               : `background: ${bgColor};`}
+
+      ${(props) =>
+          props.selected &&
+          `
+        transform: scale(0.75);
+        opacity: 0.75;
+      `}
 
       &:last-child {
         margin-right: 0;

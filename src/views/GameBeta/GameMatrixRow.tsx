@@ -7,13 +7,20 @@ import { GameSymbols } from './GameMatrixBlock'
 
 interface IProps {
     data: GameSymbols[]
+    selected: boolean[]
+    selectBlock: (cIndex: number) => void
 }
 
-export default ({ data }: IProps) => {
+export default ({ data, selected, selectBlock }: IProps) => {
     return (
         <GameMatrixRow.Wrapper>
             {data.map((symbol, index) => (
-                <MatrixBlock symbol={symbol} key={index} />
+                <MatrixBlock
+                    symbol={symbol}
+                    key={index}
+                    selected={selected[index]}
+                    onClick={() => selectBlock(index)}
+                />
             ))}
         </GameMatrixRow.Wrapper>
     )

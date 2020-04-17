@@ -13,23 +13,31 @@ import GameMatrixRow from './GameMatrixRow'
 import { GameSymbols } from './GameMatrixBlock'
 
 interface IProps {
-    data: Array<GameSymbols[]>
-    onSwapRows: (sIndex: number, dIndex: number) => void
+    matrix: Array<GameSymbols[]>
+    sorter: number[]
+    onDragRows: (sIndex: number, dIndex: number) => void
+    selected: boolean[][]
+    onSelectBlock: (rIndex: number, cIndex: number) => void
+    resetSeleted: () => void
 }
 
-export default ({ data, onSwapRows }: IProps) => {
+export default ({ matrix, sorter, onDragRows, selected, onSelectBlock, resetSeleted }: IProps) => {
     const onDragEnd = ({ source, destination }: DropResult) => {
         if (destination) {
-            onSwapRows(source.index, destination.index)
+            onDragRows(source.index, destination.index)
         }
     }
 
+    const selectRowBlock = (rowIndex: number) => (cellIndex: number) => {
+        onSelectBlock(rowIndex, cellIndex)
+    }
+
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
+        <DragDropContext onDragEnd={onDragEnd} onDragStart={resetSeleted}>
             <Droppable droppableId="matrix">
-                {({ droppableProps, innerRef }) => (
+                {({ droppableProps, innerRef, placeholder }) => (
                     <GameMatrix.Wrapper ref={innerRef} {...droppableProps}>
-                        {data.map((data, index) => (
+                        {sorter.map((rowIndex, index) => (
                             <Draggable draggableId={String(index)} index={index} key={index}>
                                 {(provided: DraggableProvided) => (
                                     <div
@@ -37,11 +45,17 @@ export default ({ data, onSwapRows }: IProps) => {
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
                                     >
-                                        <GameMatrixRow data={data} key={index} />
+                                        <GameMatrixRow
+                                            key={`matrix-row-${rowIndex}`}
+                                            data={matrix[rowIndex]}
+                                            selected={selected[rowIndex]}
+                                            selectBlock={selectRowBlock(rowIndex)}
+                                        />
                                     </div>
                                 )}
                             </Draggable>
                         ))}
+                        {placeholder}
                     </GameMatrix.Wrapper>
                 )}
             </Droppable>
@@ -55,7 +69,6 @@ const GameMatrix = {
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      height: 620px;
       margin: 20px 0;
     `,
 }
