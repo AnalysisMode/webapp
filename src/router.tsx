@@ -11,13 +11,14 @@ import GameTutorial from './views/GameTutorial'
 import Team from './views/Team'
 import ThankYou from './views/ThankYou'
 import SignIn from './views/SignIn'
+import GameBeta from './views/GameBeta'
 
 export default {
     '/': () => <Home />,
     '/leaderboard': () => <Leaderboard />,
     '/howitworks': () => <HowItWorks />,
     '/howtohelp': () => <HowToHelp />,
-    '/game': () => <Game />,
+    '/game': () => <GameBeta />,
     '/game-tutorial': () => <GameTutorial />,
     '/team': () => <Team />,
     '/thankyou': () => <ThankYou />,
