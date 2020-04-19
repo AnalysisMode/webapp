@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 // utils
 import axios from '../../utils/axiosInstance'
 // types
-import { GameSymbols } from '../../views/GameBeta/GameMatrixBlock'
+import { GameSymbols } from '../../views/Game/GameMatrixBlock'
 
 export const getPuzzle = createAsyncThunk('game/puzzle', async () => {
     return axios.get('/puzzle', {
