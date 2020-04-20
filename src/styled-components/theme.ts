@@ -87,8 +87,8 @@ export const theme = {
     },
     font: {
         family: {
-            title: 'Brinnan',
-            body: 'Neutrif Pro',
+            title: 'Montserrat',
+            body: 'Montserrat',
         },
         size: {
             smaller: '16px',
