@@ -11,12 +11,13 @@ const StyledButton = styled.button<Props>`
     font-size: ${({ theme }) => theme.font.size.smaller};
     font-weight: bold;
     font-family: ${({ theme }) => theme.font.family.title};
-    height: 45px;
+    height: 50px;
     padding: 0 30px;
     text-transform: lowercase;
     cursor: pointer;
     transition: all 0.2s ease-out;
     border: none;
+    border-radius: 10px;
     background-color: transparent;
 
     :hover {
@@ -37,11 +38,11 @@ const StyledButton = styled.button<Props>`
     ${({ variant, theme }) =>
         variant === 'primary' &&
         css`
-            background-color: ${theme.colors.primaryGreen};
+            background-color: ${theme.colors.main};
             color: ${theme.colors.light['shade-1']};
 
             &:hover {
-                background-color: ${theme.colors.lightGreen};
+                background-color: ${theme.colors.text};
             }
         `}
     
@@ -49,15 +50,15 @@ const StyledButton = styled.button<Props>`
     ${({ variant, theme }) =>
         variant === 'secondary' &&
         css`
-            color: ${theme.colors.primaryGreen};
-            border: 1px solid ${theme.colors.primaryGreen};
+            color: ${theme.colors.main};
+            border: 1px solid ${theme.colors.main};
         `}
     
     /* link style */
     ${({ variant, theme }) =>
         variant === 'link' &&
         css`
-            color: ${theme.colors.primaryGreen};
+            color: ${theme.colors.main};
 
             :hover {
                 text-decoration: underline;
