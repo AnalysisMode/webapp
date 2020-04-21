@@ -9,7 +9,7 @@ import HowToHelp from './views/HowToHelp'
 import GameTutorial from './views/GameTutorial'
 import Team from './views/Team'
 import ThankYou from './views/ThankYou'
-import SignIn from './views/SignIn'
+import SignInSignUp from './views/SignInSignUp'
 import Game from './views/Game'
 
 export default {
@@ -21,5 +21,5 @@ export default {
     '/game-tutorial': () => <GameTutorial />,
     '/team': () => <Team />,
     '/thankyou': () => <ThankYou />,
-    '/sign-in': () => <SignIn />,
+    '/sign-in': () => <SignInSignUp />,
 }

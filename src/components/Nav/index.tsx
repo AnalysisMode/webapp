@@ -6,12 +6,17 @@ import { navigate } from 'hookrouter'
 // components
 import NavLink from '../NavLink'
 import { Button } from '../Button'
+import { useSelector } from 'react-redux'
+import { IRootState } from '../../redux/rootReducer'
+import { IAuthUser } from '../../redux/reducers/auth'
 
 type NavProps = {
     isGameView: boolean
 }
 
 export default ({ isGameView }: NavProps) => {
+    const user = useSelector<IRootState, IAuthUser | null>((state) => state.auth.user)
+
     if (!isGameView) {
         return (
             <Nav.Wrapper>
@@ -22,9 +27,18 @@ export default ({ isGameView }: NavProps) => {
                 <Button onClick={() => navigate('/game')} variant="primary">
                     play now
                 </Button>
-                <Button onClick={() => navigate('/sign-in')} variant="secondary">
-                    sign in
-                </Button>
+
+                {user && (
+                    <Button onClick={() => navigate('/profile')} variant="secondary">
+                        profile
+                    </Button>
+                )}
+
+                {!user && (
+                    <Button onClick={() => navigate('/sign-in')} variant="secondary">
+                        sign in
+                    </Button>
+                )}
             </Nav.Wrapper>
         )
     } else {
