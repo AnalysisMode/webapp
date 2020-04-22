@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { setAuthToken, getAuthToken } from './authToken'
+import { setAuthToken, getAuthToken } from './storage'
 
 const instance = axios.create({
     // baseURL: process.env.REACT_APP_BASE_URL,

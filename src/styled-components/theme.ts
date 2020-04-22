@@ -91,6 +91,7 @@ export const theme = {
             body: 'Montserrat',
         },
         size: {
+            smallest: '14px',
             smaller: '16px',
             small: '18px',
             medium: '26px',
